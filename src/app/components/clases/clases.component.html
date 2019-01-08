@@ -1,0 +1,28 @@
+<div [ngClass]="alerta" class="alert" role="alert">
+    <h4 class="alert-heading">Mensaje</h4>
+    <p><strong>Probando</strong> el uso de clases en agular</p>
+</div>
+
+<button class="btn btn-info" (click)="alerta = 'alert-info'">Info</button>
+<button class="btn btn-success" (click)="alerta = 'alert-success'">Success</button>
+
+<br><br>
+
+<h3 [ngClass]="{'text-danger': propiedades.danger, 'text-warning': !propiedades.danger}">
+    Hola mundo
+</h3> 
+
+<button (click)="propiedades.danger = !propiedades.danger" class="btn" [ngClass]="{'btn-danger': propiedades.danger, 'btn-warning': !propiedades.danger}">
+    cambiar
+</button> 
+
+<br><br>
+<h3>Proceso asíncrono</h3>
+<button 
+    (click)="ejecutar()" 
+    class="btn btn-primary"
+    [disabled]="loading">
+    <i [ngClass]="{'fa-save': !loading, 'fa-sync fa-spin': loading}" class="fa"></i>
+    <span *ngIf="!loading">Guardar cambios</span> 
+    <span *ngIf="loading">Espere por favor</span> 
+</button>
